@@ -1,0 +1,32 @@
+# Configuration not using now as all code in notebooks for better visibility
+# can refer si_full_notebook.ipynb for details
+# Just kept for reference
+# can be used if want to modularize code more
+# if we want to run training from command line
+# e.g. python src/train.py --config config.yaml
+# or run app from command line
+# e.g. streamlit run src/app.py -- --config config.yaml
+# for deployment with FastAPI can use
+# e.g. uvicorn src.app:app --host 0.0.0.S0 --port 8000 -- --config config.yaml
+# but currently running notebooks directly
+
+data:
+  path: data/si_data.csv
+  time_col: Timestamp
+  target: SI
+  numeric: [OxEnRa, BlFuPeIn, EnOxFl, CoBlFl, BlMo, BlFuBoGaVo, BlFuBoGaIn, ThCoTe, ToGaPr, EnOxPr, CoBlPr, ToPrDr, HoBlPr, AcBlVe, CoBlTe, HoBlTe, ToTe, BlHu, CoInSeVa, FoSI, HoBl, ToGasP, CoBF]
+features:
+  lags: [1,2,3]
+  roll_windows: [3,6,12]
+  roll_stats: [mean,std]
+training:
+  valid_size_hours: 168
+  test_size_hours: 168
+  random_state: 42
+model:
+  type: XGB
+  params:
+    n_estimators: 200
+    max_depth: 6
+    learning_rate: 0.05
+
