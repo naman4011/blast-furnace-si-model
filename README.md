@@ -33,7 +33,7 @@ This repository provides an end-to-end solution for predicting the Silicon Index
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/si_full_submission.git
+git clone https://github.com/naman4011/blast-furnace-si-model.git
 cd si_full_submission
 ```
 
